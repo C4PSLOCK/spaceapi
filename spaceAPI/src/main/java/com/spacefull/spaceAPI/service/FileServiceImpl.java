@@ -20,15 +20,14 @@ public class FileServiceImpl implements FileService {
         String filePath = path + File.separator + fileName;
 
         // create file object
-        //справить вывод true
-        File f = new File(filePath);
+        File  f = new File(path);
         if(!f.exists()){
             f.mkdir();
         }
 
         // cope the file or upload file to the path
         Files.copy(file.getInputStream(), Paths.get(filePath), StandardCopyOption.REPLACE_EXISTING );
-        return null;
+        return fileName;
     }
 
 
